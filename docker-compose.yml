@@ -1,0 +1,24 @@
+web:
+  image: laravel_web:latest
+  ports:
+    - 8000:80
+  volumes:
+    - ./:/var/www
+  links:
+    - db
+  environment:
+    DB_HOST: db
+    DB_DATABASE: estudojason
+    DB_USERNAME: root
+    DB_PASSWORD: password
+    DB_CONNECTION: mysql
+db:
+  image: mysql
+  environment:
+    MYSQL_DATABASE: estudojason
+    MYSQL_USER: root
+    MYSQL_PASSWORD: password
+    MYSQL_ROOT_PASSWORD: password
+
+
+
