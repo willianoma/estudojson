@@ -8,6 +8,10 @@
         "php": ">=5.5.9",
         "laravel/framework": "5.1.*"
     },
+    "require": {
+        "laravel/framework": "4.1.*",
+        "intervention/image": "dev-master"
+    },
     "require-dev": {
         "fzaninotto/faker": "~1.4",
         "mockery/mockery": "0.9.*",
