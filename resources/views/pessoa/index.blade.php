@@ -4,7 +4,11 @@
 
 <a href="{{ route('pessoa.create') }}">Create</a>
 
+<?php
 
+//var_dump(Defender::findRoleById('1'));
+
+?>
 <div class="row">
     <div class="col-md-12">
         @if($pessoas->count())

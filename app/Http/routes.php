@@ -11,6 +11,14 @@
 |
 */
 
+//Route::get('pessoa', ['middleware' => ['auth', 'needsPermission'], 'shield' => 'exemplo.create', function () {
+//    return 'Yes I can!';
+//}]);
+
+//Route::get('pessoa', ['middleware' => ['auth', 'needsPermission'], 'shield' => 'exemplo.create', function () {
+//    return 'Yes I can!';
+//}]);
+
 
 Route::resource('pessoa', 'PessoaController');
 Route::get('/pessoasjson', 'PessoaController@pessoasjson');
@@ -21,9 +29,9 @@ Route::controllers([
     'password' => 'Auth\PasswordController',
 ]);
 
-// Registrarion routes
-//eRoute::get('auth/register', 'Auth\AuthController@getRegister');
-//Route::post('auth/register', 'Auth\AuthController@postRegister');
+//Registrarion routes
+Route::get('auth/register', 'Auth\AuthController@getRegister');
+Route::post('auth/register', 'Auth\AuthController@postRegister');
 
 // Authentication routes...
 Route::get('login', 'Auth\AuthController@getLogin');
@@ -38,10 +46,14 @@ Route::post('recuperar-senha', 'Auth\PasswordController@postEmail');
 Route::get('resetar-senha{token}', 'Auth\PasswordController@getReset');
 Route::post('resetar-senha/', 'Auth\PasswordController@postReset');
 
-
-Route::group(['prefix' => 'painel', 'middleware' => 'auth'], function () {
+Route::group(['prefix' => 'painel', 'middleware' => 'auth', 'needsPermission', 'shield' => 'exemplo.create'], function () {
     Route::controller('/', 'Painel\PainelController');
 });
+
+
+//Route::group(['prefix' => 'painel', 'middleware' => 'auth'], function () {
+//    Route::controller('/', 'Painel\PainelController');
+//});
 
 
 Route::controller('/', 'Site\HomeController');

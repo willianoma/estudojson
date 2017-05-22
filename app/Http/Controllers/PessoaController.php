@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\App;
+use Artesaos\Defender\Facades\Defender;
 
 class PessoaController extends Controller
 {
@@ -28,10 +29,14 @@ class PessoaController extends Controller
     public function index()
     {
 
-        $pessoas = Pessoa::orderBy('id', 'asc')->paginate(10);
+
+        if (Defender::hasPermission('exemplo.index')) {
+
+            $pessoas = Pessoa::orderBy('id', 'asc')->paginate(10);
 
 
-        return view('pessoa.index', compact('pessoas'));
+            return view('pessoa.index', compact('pessoas'));
+        }
     }
 
     /**
