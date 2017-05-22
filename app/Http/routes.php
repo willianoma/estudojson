@@ -22,7 +22,7 @@ Route::controllers([
 ]);
 
 // Registrarion routes
-//Route::get('auth/register', 'Auth\AuthController@getRegister');
+//eRoute::get('auth/register', 'Auth\AuthController@getRegister');
 //Route::post('auth/register', 'Auth\AuthController@postRegister');
 
 // Authentication routes...

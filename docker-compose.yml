@@ -1,5 +1,5 @@
 web:
-  image: laravel_web:latest
+  image: hitalos/laravel:latest
   ports:
     - 8000:80
   volumes:
